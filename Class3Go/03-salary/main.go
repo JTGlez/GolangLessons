@@ -6,27 +6,6 @@ import (
 	"strconv"
 )
 
-func calcSalary(minutes int, category string) float64 {
-	workedHours := float64(minutes) / 60.0
-	var baseSalary, bonus float64
-
-	switch category {
-	case "C":
-		baseSalary = workedHours * 1000
-	case "B":
-		baseSalary = workedHours * 1500
-		bonus = baseSalary * 0.20
-	case "A":
-		baseSalary = workedHours * 3000
-		bonus = baseSalary * 0.50
-	default:
-		fmt.Println("Invalid category")
-		return 0
-	}
-
-	return baseSalary + bonus
-}
-
 func main() {
 	fmt.Println("Enter worked minutes and category. Then, press enter...")
 	args := helpers.ReadArgsFromStdin()
@@ -42,6 +21,6 @@ func main() {
 	}
 
 	category := args[1]
-	salary := calcSalary(workedHours, category)
+	salary, _ := CalcSalary(workedHours, category)
 	fmt.Printf("Monthly salary: $%.2f\n", salary)
 }
