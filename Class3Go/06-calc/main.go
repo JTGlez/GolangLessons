@@ -62,18 +62,13 @@ func main() {
 	val1, err1 := strconv.ParseFloat(args[1], 64)
 	val2, err2 := strconv.ParseFloat(args[2], 64)
 
-	calcFunc := calculate(operator)
-	if calcFunc == nil {
-		fmt.Println("Error: Invalid operator.")
-		return
-	}
+	calcFunc := calculate(operator)(val1, val2)
 
 	if err1 != nil || err2 != nil {
 		fmt.Println("Error: Invalid number format.")
 		return
 	}
 
-	result := calcFunc(val1, val2)
-	fmt.Printf("Result of %s: %0.2f\n", operator, result)
+	fmt.Printf("Result of %s: %0.2f\n", operator, calcFunc)
 
 }
