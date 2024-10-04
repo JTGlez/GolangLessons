@@ -25,24 +25,23 @@ func calcSalary(minutes int, category string) float64 {
 	}
 
 	return baseSalary + bonus
-
 }
 
 func main() {
-	fmt.Println("Enter worked hours and category. Then, press enter...")
+	fmt.Println("Enter worked minutes and category. Then, press enter...")
 	args := helpers.ReadArgsFromStdin()
 	if len(args) < 2 {
-		fmt.Println("Por favor, proporciona las horas trabajadas y la categoría del empleado.")
+		fmt.Println("Please provide the worked hours and the employee category.")
 		return
 	}
 
-	horasTrabajadas, err := strconv.Atoi(args[0])
+	workedHours, err := strconv.Atoi(args[0])
 	if err != nil {
-		fmt.Println("Error al convertir las horas trabajadas a entero:", err)
+		fmt.Println("Error converting worked hours to integer:", err)
 		return
 	}
 
-	categoria := args[1]
-	salario := calcSalary(horasTrabajadas, categoria)
-	fmt.Printf("Salario mensual: $%.2f\n", salario)
+	category := args[1]
+	salary := calcSalary(workedHours, category)
+	fmt.Printf("Monthly salary: $%.2f\n", salary)
 }

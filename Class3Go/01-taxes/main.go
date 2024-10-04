@@ -6,13 +6,13 @@ import (
 	"strconv"
 )
 
-func calculateTaxes(salary float64) (taxe float64) {
+func calculateTaxes(salary float64) (tax float64) {
 	if salary < 50000 {
-		taxe = 0
+		tax = 0
 	} else if salary <= 15000 {
-		taxe = salary * 0.17
+		tax = salary * 0.17
 	} else {
-		taxe = salary * 0.27
+		tax = salary * 0.27
 	}
 	return
 }
@@ -34,6 +34,6 @@ func main() {
 
 	for _, salary := range salaries {
 		taxes := calculateTaxes(salary)
-		fmt.Printf("Para un salario de $%.2f, el impuesto es $%.2f\n", salary, taxes)
+		fmt.Printf("For a salary of $%.2f, the tax is $%.2f\n", salary, taxes)
 	}
 }
