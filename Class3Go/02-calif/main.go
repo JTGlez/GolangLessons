@@ -2,27 +2,9 @@ package main
 
 import (
 	"class3go/helpers"
-	"errors"
 	"fmt"
 	"strconv"
 )
-
-func calculateAverage(grades ...float64) (average float64, err error) {
-
-	if len(grades) == 0 {
-		return 0, errors.New("no grades provided")
-	}
-
-	sum := 0.0
-	for _, grade := range grades {
-		if grade < 0 {
-			return 0, errors.New("invalid grade")
-		}
-		sum += grade
-	}
-	average = sum / float64(len(grades))
-	return
-}
 
 func main() {
 
@@ -33,14 +15,14 @@ func main() {
 
 	var grades []float64
 	for _, arg := range args {
-		salary, err := strconv.ParseFloat(arg, 64)
+		grade, err := strconv.ParseFloat(arg, 64)
 		if err != nil {
 			panic(err)
 		}
-		grades = append(grades, salary)
+		grades = append(grades, grade)
 	}
 
-	average, err := calculateAverage(grades...)
+	average, err := CalculateAverage(grades...)
 
 	if err != nil {
 		fmt.Println("Error", err)
