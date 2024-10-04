@@ -9,7 +9,7 @@ import (
 func calculateTaxes(salary float64) (tax float64) {
 	if salary < 50000 {
 		tax = 0
-	} else if salary <= 15000 {
+	} else if salary <= 150000 {
 		tax = salary * 0.17
 	} else {
 		tax = salary * 0.27
