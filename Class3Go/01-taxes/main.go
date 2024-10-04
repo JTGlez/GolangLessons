@@ -22,7 +22,7 @@ func main() {
 	}
 
 	for _, salary := range salaries {
-		tax := CalculateTaxes(salary)
+		tax, _ := CalculateTaxes(salary)
 		fmt.Printf("For a salary of $%.2f, the tax is $%.2f\n", salary, tax)
 	}
 }
