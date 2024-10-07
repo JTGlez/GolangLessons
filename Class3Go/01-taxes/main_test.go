@@ -3,8 +3,9 @@ package main_test
 import (
 	taxes "class3go/01-taxes"
 	"errors"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestCalculateTaxesSuite(t *testing.T) {
