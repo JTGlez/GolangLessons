@@ -20,8 +20,8 @@ func (p Products) GetAll() {
 	fmt.Println("\n")
 }
 
-func (p *Product) Save() {
-	globalProducts = append(globalProducts, *p)
+func (p Product) Save() {
+	globalProducts = append(globalProducts, p)
 }
 
 func getById(index int) Product {
